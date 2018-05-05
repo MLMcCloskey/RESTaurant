@@ -15,6 +15,16 @@ app.use(bodyParser.json());
 
 // -------------------------------------------------
 
+// Empty array to store patrons
+var patrons = [
+    {
+        name: "Yung Gravy",
+        phone: "4044206969",
+        email: "momDater@yourMomsHouse.gov"
+    },
+];
+
+// ----------------------------------------------------
 // Routes
 app.get("/", function(request, response){
     res.sendFile(path.join(__dirname, "home.html"));
@@ -28,8 +38,33 @@ app.get("/reserve", function(request, response){
     res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
+// Display patrons
 
+app.get("/api/patrons", function(request, response){
+    return response.json(patrons);
+});
 
+app.get("/api/patrons/:patron", function(request, response){
+    var chosen = request.params.patron;
+
+    console.log(chosen);
+
+    for (i = 0; i < patrons.length; i++){
+        if (chosen === patrons[i].routeName){
+            return response.json(patrons[i]);
+        }
+    }
+    return response.json(false)
+});
+
+// Add patrons
+app.post("/api/patrons", function(request, response){
+    var newPatron = request.body;
+    newPatron.routeName = newPatron.name.replace(/\s+/g, "").toLowerCase();
+    console.log(newPatron);
+    patrons.push(newPatron);
+    response.json(newPatron);
+})
 
 
 // Open server
