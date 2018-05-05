@@ -25,7 +25,6 @@
           <button type="button" class="btn btn-danger">Home</button>
         </a>
       </div>
-
     </div>
 
     <div class="row">
@@ -34,10 +33,28 @@
         <!-- Current Tables in Use -->
         <div class="card">
           <div class="card-header">
-            Current Mom Reservations
+            Make reservation
           </div>
           <div class="card-body">
-            <h5 class="card-title">Current Mom Reservations</h5>
+            <form role="form">
+
+              <div class="form-group">
+                <label for="">Name</label>
+                <input type="text" class="form-control" id="reserve_name">
+              </div>
+
+              <div class="form-group">
+                <label for="">Phone Number</label>
+                <input type="text" class="form-control" id="reserve_phone">
+              </div>
+
+              <div class="form-group">
+                <label for="">Email</label>
+                <input type="text" class="form-control" id="reserve_email">
+              </div>
+
+              <button type="submit" class="btn btn-primary submit">Submit</button>
+            </form>
           </div>
         </div>
 
@@ -47,6 +64,8 @@
     </div>
 
   </div>
+  <br>
+  <br>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
     crossorigin="anonymous"></script>
