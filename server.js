@@ -12,7 +12,7 @@ var PORT = process.env.PORT || 3000;
 
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
-
+app.use(express.static('public'))
 // -------------------------------------------------
 
 // Empty array to store patrons
@@ -31,15 +31,15 @@ var moms = ["Charlene", "Big Mama (Martin Lawrence)", "Elizabeth", "Justine", "A
 // ----------------------------------------------------
 // Routes
 app.get("/", function(request, response){
-    res.sendFile(path.join(__dirname, "home.html"));
+    response.sendFile(path.join(__dirname, "home.html"));
 });
 
 app.get("/tables", function(requst, response){
-    res.sendFile(path.join(__dirname, "tables.html"));
+    response.sendFile(path.join(__dirname, "tables.html"));
 });
 
 app.get("/reserve", function(request, response){
-    res.sendFile(path.join(__dirname, "reserve.html"));
+    response.sendFile(path.join(__dirname, "reserve.html"));
 });
 
 // Display patrons
