@@ -24,6 +24,10 @@ var patrons = [
     },
 ];
 
+var seated = [];
+var waiting = [];
+var moms = ["Charlene", "Big Mama (Martin Lawrence)", "Elizabeth", "Justine", "Andrea"]
+
 // ----------------------------------------------------
 // Routes
 app.get("/", function(request, response){
